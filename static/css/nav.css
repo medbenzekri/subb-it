@@ -1,0 +1,33 @@
+nav{
+ background: #7882F3 ;
+ height: 80px;
+ width: 100%;
+}
+label.logo{
+color: #FFFFFF;
+font-size: 50px;
+line-height: 80px;
+padding: 0 20px;
+font-weight: bold;
+font-family: Bangers;
+}
+nav ul{
+ float: right;
+ margin-right: 20px;
+}
+nav ul li{
+display: inline-block;
+line-height: 80px;
+margin: 0 5px;
+}
+nav ul li a{
+color: white;
+font-size: 17px;
+padding: 7px 13px;
+border-radius: 3px; 
+text-transform: uppercase;
+}
+a:hover{
+ background:  #33ccff ;
+ transition: .5s;
+}

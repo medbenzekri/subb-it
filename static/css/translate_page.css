@@ -1,0 +1,29 @@
+*{
+	padding: 0;
+	margin: 0;
+	text-decoration: blink;
+	list-style: none;
+	box-sizing: border-box;
+}
+body {
+  font-family: montserrat;
+}
+.container{
+ 
+ display: flex;
+ width: 100%;
+ align-items: center;
+ justify-content: center;
+ background: linear-gradient(to bottom, #33ccff 5%, #7882F3 50%);
+ background-size : cover;
+ height: calc(100vh - 80px);
+}
+
+.the-form{
+width: 600px;
+height: 500px;
+background: #fff;
+margin: 	 auto ;
+border-radius: 2%;
+
+}

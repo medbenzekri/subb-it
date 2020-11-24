@@ -1,0 +1,46 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--  CSS -->
+    <link rel="stylesheet"  href={%static 'css/translate_page.CSS' %}>
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+
+  <title>translate</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+  {% include "nav.html" %}
+  <style>
+   a.active-translate-page{
+   background:  #33ccff ;
+  </style>
+  </body>
+  <section class="container">
+  <div class="the-form">
+    <h3>upload your file</h3>
+    <input type="file" id="file-selector" accept=".ass, .srt" multiple>
+    <button id="file-upload">upload it</button>
+    <script>
+    const fileSelector = document.getElementById('file-selector');
+    const fileupload=  document.getElementById('file-upload');
+    fileupload.addEventListener('click', (event) => {
+       const xhr= new XMLHttpRequest();
+       const formData= new FormData();
+       for (const file of fileSelector.files){
+          formData.append("myfiles[]", file);
+       }
+       xhr.open("post","upload/");
+       xhr.send(formData);
+
+    });
+    </script>
+  
+  </div>
+  </section>
+  
+</html>

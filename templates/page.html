@@ -1,0 +1,43 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--  CSS -->
+    <link rel="stylesheet"  href={%static 'css/page.CSS' %}>
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+
+  <title>subb it</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+  {% include "nav.html" %}
+  <style type="text/css">
+  a.active-home{
+   background:  #33ccff ;
+  }
+  </style>
+  <div class="container">
+    <div class="image">
+       <img src={%static 'images/vid.png' %} style="width:500px;height:400px;" >
+    </div>
+    <div class="text">
+    <h1>welcome to subbit </h1>
+    <p>your free tool to translate all your sub files into any language </p>
+    <form action="/translate_page">
+    <button class="start-now" >start now</button>
+    </form>
+    </div>
+  </div>
+  
+  
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+  </body>
+</html>
