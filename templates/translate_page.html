@@ -12,6 +12,7 @@
 
   <title>translate</title>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
   {% include "nav.html" %}
@@ -24,20 +25,55 @@
   <div class="the-form">
     <h3>upload your file</h3>
     <input type="file" id="file-selector" accept=".ass, .srt" multiple>
-    <button id="file-upload">upload it</button>
+    <button id="cancel" style="display:none" onclick="cancel_upload();" >cancel</button>
+    <progress id="progress" value="0" max="100" style="display:none"> 0% </progress>
+    <span id="uploader-success-alert" class='success' style="display:none">Success!</span>
+    <span id="uploader-failure-alert" class='failiure' style="display:none">Failed!</span>
     <script>
-    const fileSelector = document.getElementById('file-selector');
-    const fileupload=  document.getElementById('file-upload');
-    fileupload.addEventListener('click', (event) => {
-       const xhr= new XMLHttpRequest();
-       const formData= new FormData();
-       for (const file of fileSelector.files){
-          formData.append("myfiles[]", file);
-       }
-       xhr.open("post","upload/");
-       xhr.send(formData);
+     const formData = new FormData();
+     const file_selector= document.getElementById('file-selector');
+     const cancel =document.getElementById('cancel');
+     let progessbar= document.getElementById('progress');
+     file-selector.addEventListener('change', () => {
+     for (let i = 0; i < file_selector.files.length; i++) {
+      formData.append('file', file_selector.files[i]);
+     }
 
-    });
+     axios.request( {
+        method: "post", 
+        url: "/upload", 
+        data: formData, 
+        onUploadProgress: (p) => {
+          cancel.style.visibility= "visible" ;
+          progessbar.style.visibility= "visible" ;
+          progessbar.value=p ;
+          //this.setState({
+            //fileprogress: p.loaded / p.total
+          //})
+        }
+
+
+      }).then (data => {
+        //this.setState({
+          //fileprogress: 1.0,
+        //})
+      })
+
+    
+
+
+
+
+
+
+     }
+
+     function cancel_upload(){
+      const CancelToken = axios.CancelToken;
+      const source = CancelToken.source();
+      
+ 
+     }
     </script>
   
   </div>
